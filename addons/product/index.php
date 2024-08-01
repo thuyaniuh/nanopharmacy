@@ -4,6 +4,8 @@ $product = new Product($appSession);
 if (strlen($selected_id) == 36) {
   $product->addProductSeen($selected_id);
 }
+
+
 $sql = "SELECT d1.id, d5.unit_id, d5.attribute_id,	d5.type_id, d1.code, d1.name, lg.description AS name_lg, d2.document_id, d5.unit_price, d5.old_price, d6.name AS unit_name, d5.currency_id";
 $sql = $sql . ", d9.name AS attribute_name, d10.name attribute_category_name, d5.factor";
 $sql = $sql . ", d1.company_id, d7.commercial_name, d7.name AS company_name, d5.id AS price_id, d8.document_id AS price_document_id, d5.description, d11.name AS type_name, 0.0 AS unit_in_stock";
@@ -17,8 +19,10 @@ $sql = $sql . " LEFT OUTER JOIN attribute d9 ON(d5.attribute_id = d9.id)";
 $sql = $sql . " LEFT OUTER JOIN attribute_category d10 ON(d9.category_id = d10.id)";
 $sql = $sql . " LEFT OUTER JOIN product_type d11 ON(d5.type_id = d11.id)";
 $sql = $sql . " LEFT OUTER JOIN product_note d12 ON(d5.id = d12.product_id)";
-$sql = $sql . " WHERE d5.code='" . $code . "'";
+$sql = $sql . " WHERE d1.code='" . $code . "'";
 $msg->add("query", $sql);
+
+
 
 $productList = $appSession->getTier()->getTable($msg);
 $product = new Product($appSession);
@@ -27,8 +31,9 @@ $productList = $product->countProduct($productList);
 $product_price_id = "";
  $product_id = "";
 $photos = [];
+$currency_id = $appSession->getConfig()->getProperty("currency_id");
 if ($productList->getRowCount() > 0) {
-	$product_price_id = $productList->getString(0, "price_id");
+ $product_price_id = $productList->getString(0, "price_id");
   $product_product_id = $productList->getString(0, "id");
   $product_id = $product_product_id;
 
@@ -170,7 +175,7 @@ if ($productList->getRowCount() > 0) {
                                 <h6 class="offer-top">30% Off</h6>
                                 <h2 class="name"><?php echo $product_name; ?></h2>
                                 <div class="price-rating">
-                                    <h3 class="theme-color price"><?php echo $appSession->getCurrency()->format($product_currency_id, $product_unit_price); ?>/ <?php echo $unit_name ?>
+                                    <h3 class="theme-color price" ><span id="editunit_price"><?php echo $appSession->getCurrency()->format($product_currency_id, $product_unit_price); ?></span>/ <?php echo $unit_name ?>
                     <?php if ($old_price != 0) { ?>
                       <del> (<?php echo $old_price; ?>)</del>
                     <?php } ?> <span
@@ -197,10 +202,93 @@ if ($productList->getRowCount() > 0) {
                                     </div>
                                 </div>
 
-                                <div class="procuct-contain">
-                                    <p><?php echo $description;?>
-                                    </p>
+								<div class="product-contain">
+                                   
                                 </div>
+
+								<div class="product-package">
+                                    <div class="product-title">
+                                        <h4>Weight</h4>
+                                    </div>
+                                    <ul class="select-package">
+										<?php
+										for($i =0; $i<$productList->getRowCount(); $i++){
+											$attribute_id = $productList->getString($i, "attribute_id");
+											$attribute_name = $productList->getString($i, "attribute_name");
+											$price_id = $productList->getString($i, "price_id");
+											$unit_price = $productList->getString($i, "unit_price");
+										?>
+                                       
+
+									   <li class="form-check" style="list-style: none; display: inline-block; margin-right: 15px;">
+    <input class="form-check-input" type="radio" name="size" id="medium">
+    <label class="form-check-label" for="medium" style="cursor: pointer;">
+        <a href="javascript:attributeChange('<?php echo $price_id;?>', '<?php echo $unit_price;?>', '<?php echo $appSession->getCurrency()->format($currency_id, $unit_price);?>')" 
+           <?php if($attribute_id == $product_attribute_id)  {?> class="active" <?php } ?> 
+           style="text-decoration: none; color: inherit; padding: 5px 10px; border: 1px solid black; border-radius: 5px;">
+           <?php echo $attribute_name; ?>
+        </a>
+    </label>
+</li>
+
+<style>
+    .form-check-label a {
+        color: black; /* Đặt màu chữ là đen hoặc bất kỳ màu nào bạn muốn */
+        text-decoration: none; /* Loại bỏ gạch chân */
+        padding: 5px 10px; /* Thêm khoảng cách bên trong */
+        border: 1px solid black; /* Thêm viền đen */
+        border-radius: 5px; /* Bo góc viền */
+        display: inline-block; /* Để đảm bảo padding và border hiển thị đúng */
+    }
+
+    .form-check-label a.active {
+        font-weight: bold; /* Làm chữ đậm khi active */
+    }
+
+    .form-check-input {
+        display: none; /* Ẩn nút radio gốc */
+    }
+
+    .form-check {
+        display: inline-block; /* Đặt các phần tử li nằm ngang */
+        margin-right: 15px; /* Thêm khoảng cách giữa các phần tử */
+    }
+</style>
+
+<script>
+    function attributeChange(priceId, unitPrice, formattedPrice) {
+        // Logic hiện có của bạn khi thay đổi thuộc tính
+
+        // Tìm phần tử có class "active" hiện tại và loại bỏ nó
+        var activeLink = document.querySelector('a.active');
+        if (activeLink) {
+            activeLink.classList.remove('active');
+        }
+
+        // Thêm class "active" vào phần tử được nhấp
+        event.target.classList.add('active');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Đảm bảo rằng nếu nút radio được chọn từ trước, thẻ <a> tương ứng có class "active"
+        var radio = document.getElementById('medium');
+        if (radio.checked) {
+            var label = radio.nextElementSibling;
+            var link = label.querySelector('a');
+            link.classList.add('active');
+        }
+    });
+</script>
+
+
+										<?php
+										}
+										?>
+                                        
+                                    </ul>
+                                </div>
+
+
 
                               
 
@@ -262,6 +350,7 @@ if ($productList->getRowCount() > 0) {
                                             
                                         </div>
                                     </div>
+
                                     <button onclick="addingProduct('card');"
                                         class="btn btn-md bg-dark cart-button text-white w-100"><?php echo $appSession->getLang()->find("Add To Cart");?></button>
                                 </div>
@@ -812,6 +901,16 @@ if ($productList->getRowCount() > 0) {
   <!-- trending product-section end -->
 
   <script>
+
+	var product_price_id  = '<?php echo $product_price_id;?>';
+	var product_unit_price  = '<?php echo $product_unit_price;?>';
+
+	function attributeChange(price_id, unit_price, unit_price_format){
+		product_price_id = price_id;
+		product_unit_price = unit_price;
+		document.getElementById("editunit_price").innerHTML = unit_price_format;
+		Weight
+	}
     function addingProduct(type) {
       var ctr = document.getElementById('quantity');
       if (ctr.value == '') {
@@ -829,7 +928,7 @@ if ($productList->getRowCount() > 0) {
       var description = "";
 
       addProduct('<?php echo $product_product_id; ?>', '<?php echo $product_currency_id; ?>', '<?php echo $product_unit_id; ?>', '<?php echo $product_attribute_id; ?>',
-        quantity, <?php echo $product_unit_price; ?>, '', 1, description, '<?php echo $company_id; ?>', '<?php echo $product_price_id; ?>', '<?php echo $product_type_id; ?>',
+        quantity, product_unit_price, '', 1, description, '<?php echo $company_id; ?>', product_price_id,
         function(status, message) {
           if (type == 'card') {
             document.location.href = '<?php echo URL; ?>checkout'
