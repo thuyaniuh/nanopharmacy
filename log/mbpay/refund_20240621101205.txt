@@ -1,0 +1,1 @@
+{"refund_amount":"675000.00","refund_type":"partial","refund_id":"2024173000002","refund_reference_id":"241731010482862","merchant_refund_transaction_reference":null,"merchant_transaction_reference":"00007620240621101014","payment_method":"324","message":"success","error_code":"00","mac_type":"MD5","mac":"84D122CAA207D9F22CC628EF8E6CD3A9"}

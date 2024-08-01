@@ -1,0 +1,1 @@
+{"refund_amount":"1575000.00","refund_type":"full","refund_id":"2024173000001","refund_reference_id":"241730939537797","merchant_refund_transaction_reference":null,"merchant_transaction_reference":"00007520240621093845","payment_method":"324","message":"success","error_code":"00","mac_type":"MD5","mac":"09A7F45DBD3A81E57D1355EF5D599905"}

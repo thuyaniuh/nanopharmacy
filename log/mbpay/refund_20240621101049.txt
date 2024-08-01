@@ -1,0 +1,1 @@
+{"message":"Request amount not valid","error_code":"106","mac_type":"MD5","mac":"A31169589755BB0A7AA4A680B2C976DB"}

@@ -1,0 +1,314 @@
+user: 0309612872-999
+pass: 19006676
+
+5801415157
+123456Ab
+
+
+update sale_order_product set status =0 where id in(
+select d1.id from sale_order_product d1
+left outer join sale_order d2 on(d1.order_id = d2.id)
+left outer join customer_register d3 on(d2.rel_id = d3.id)
+where d3.receipt_no='VICB.1631' and d1.status =14)
+
+
+select d1.id,d2.customer_id from sale_order_product d1
+left outer join sale_order d2 on(d1.order_id = d2.id)
+left outer join customer_register d3 on(d2.rel_id = d3.id)
+where d2.customer_id ='b830741f-791f-49d4-ad54-1c260027de98'
+and d1.status =0
+
+
+select d1.id, d4.code, d1.write_date, d1.conformity_code, d3.receipt_no, d6.parent_id from sale_order_product d1
+left outer join sale_order d2 on(d1.order_id = d2.id)
+left outer join customer_register d3 on(d2.rel_id = d3.id)
+left outer join product_private d4 on(d1.private_id = d4.id)
+left outer join customer_register_line d5 on(d1.register_line_id =d5.id)
+left outer join product_private d6 on(d5.rel_id = d6.id)
+where d2.customer_id ='b830741f-791f-49d4-ad54-1c260027de98'
+and d1.status =0  and d1.write_date>'2023-07-12 00:00:00' 
+order by d4.code, d1.conformity_code, d1.write_date
+
+
+
+select d1.id, d4.code, d1.write_date, d1.conformity_code, d3.receipt_no, d6.parent_id from sale_order_product d1
+left outer join sale_order d2 on(d1.order_id = d2.id)
+left outer join customer_register d3 on(d2.rel_id = d3.id)
+left outer join product_private d4 on(d1.private_id = d4.id)
+left outer join customer_register_line d5 on(d1.register_line_id =d5.id)
+left outer join product_private d6 on(d5.rel_id = d6.id)
+where d2.customer_id ='b830741f-791f-49d4-ad54-1c260027de98'
+and d1.status =0 and d3.receipt_no != 'VICB.1631'
+and d6.parent_id in('bfe4d56f-f021-4dad-a91d-36dfac1084bd'
+,'bfe4d56f-f021-4dad-a91d-36dfac1084bd'
+,'6230122d-4fbb-4770-ef9d-ccb3f0740045'
+,'16e26589-b783-4ca4-d358-a32115152374'
+,'2f86a6ef-edbf-4de3-9543-318b72e1bf92'
+,'2f86a6ef-edbf-4de3-9543-318b72e1bf92'
+,'f2da35ff-0aa5-45fe-bc8b-a6ae2bdc8903'
+,'72e9d199-299f-45d8-e8e1-ffa10a0653ec'
+,'4b3adf9f-3e0c-4aa2-94b4-3b6ace1ad031'
+,'f89328ac-4e1e-40cf-e4a7-ce6c53724e58'
+,'aae5dce0-d87b-448f-917e-269547d132c7'
+,'63c19abd-38bf-415c-cb55-09bc904403a3'
+,'66f5632c-1747-48a3-c35b-9c5817877eb3'
+,'66f5632c-1747-48a3-c35b-9c5817877eb3'
+,'ad020393-1238-41b6-cba9-378d27f45ebf'
+,'66820cea-8816-4be1-a022-7b87fada87d9'
+,'1f3b03ce-ae37-4535-8b81-f92ababf8c41'
+,'1f3b03ce-ae37-4535-8b81-f92ababf8c41'
+,'5841990f-9921-4491-84c2-d1531b64d12f'
+,'51143efb-942c-4ba8-eef1-ce0f134e26a5'
+,'5cf3cd10-cdb2-44f3-d533-ce483c302f9e'
+,'4d1ed6d4-53c6-4c99-a6a0-2b211a95b5f1'
+,'4d1ed6d4-53c6-4c99-a6a0-2b211a95b5f1'
+,'760e0cdc-0374-427c-b9a1-4f66e7f459a6'
+,'4c6e313c-fe56-4f4a-e8f7-ba04896d515e'
+,'1921fa68-928e-445a-c3cd-08c8441f4152'
+,'d3c5d861-bb55-439f-951a-b42d21b6150a'
+,'03321319-4766-4d03-ce81-555f2f674c9a'
+,'03321319-4766-4d03-ce81-555f2f674c9a'
+)
+order by d4.code, d1.conformity_code, d1.write_date
+
+select d1.id, d4.code, d1.write_date, d1.conformity_code, d3.receipt_no, d6.parent_id from sale_order_product d1
+left outer join sale_order d2 on(d1.order_id = d2.id)
+left outer join customer_register d3 on(d2.rel_id = d3.id)
+left outer join product_private d4 on(d1.private_id = d4.id)
+left outer join customer_register_line d5 on(d1.register_line_id =d5.id)
+left outer join product_private d6 on(d5.rel_id = d6.id)
+where d2.customer_id ='b830741f-791f-49d4-ad54-1c260027de98'
+and  d1.write_date<'2023-07-12 00:00:00' 
+and d1.conformity_code in('VICB 3145.10-104'
+,'VICB 3145.10-104'
+,'VICB 3145.10-105'
+,'VICB 3145.10-106'
+,'VICB 3145.10-108'
+,'VICB 3145.10-108'
+,'VICB 3145.10-109'
+,'VICB 3145.10-110'
+,'VICB 3145.10-111'
+,'VICB 3145.10-112'
+,'VICB 3145.10-113'
+,'VICB 3145.10-114'
+,'VICB 3145.10-117'
+,'VICB 3145.10-117'
+,'VICB 3145.10-118'
+,'VICB 3145.10-119'
+,'VICB 3145.10-120'
+,'VICB 3145.10-120'
+,'VICB 3145.10-121'
+,'VICB 3145.10-122'
+,'VICB 3145.10-127'
+,'VICB 3145.10-128'
+,'VICB 3145.10-128'
+,'VICB 3145.10-129'
+,'VICB 3145.10-130'
+,'VICB 3145.10-131'
+,'VICB 3145.10-132'
+,'VICB 3145.10-135'
+,'VICB 3145.10-135'
+
+)
+order by d4.code, d1.conformity_code, d1.write_date
+
+
+
+
+select d1.id, d1.status, d1.quantity, d1.quantity_out, (select sum(n.quantity) from stock_product n
+left outer join stock m on(n.stock_id = m.id) where n.rel_id = d1.id and n.status =0 and m.status =0) as qty_out, d4.quantity, d4.id
+, d5.status, d5.id
+from stock_product d1
+left outer join stock d2 on(d1.stock_id = d2.id)
+left outer join product d3 on(d1.product_id = d3.id)
+left outer join stock_product d4 on(d1.rel_id = d4.id)
+left outer join stock_product d5 on(d1.id = d5.rel_id)
+where d1.status =0 and d1.warehouse_id ='a42d8c7a-6061-4965-d85c-e6ef66160969'
+and d3.code='VLPEE039'
+and d2.receipt_date<='2023-09-04 00:59:59'
+--and d2.receipt_date>='2023-08-01 23:59:59'
+--and d1.quantity_out =0
+order by d1.rel_id asc
+
+javascript:goto1693938221699('02d3de61-de49-42d2-feb6-3d3e30438f5b', '')
+update stock_product set status =1 where id ='d4f15800-30e3-11ee-9638-b13a946312b4'
+update stock_product set status =0 where id ='5f4f9ef0-0437-11ee-8fde-f9c301c8775e'
+update stock_product set quantity =6931, status =0 where id ='68d33220-1d73-11ee-b005-63f37cf34e18'
+update stock_product set quantity_out =2201 where id ='db583e30-3a42-11ee-9bdf-a75c91755c04'
+"900b0650-4600-11ee-8a09-3fccf3b26c41"
+"8aff8110-46cb-11ee-920a-397ef34d35ac"
+
+javascript:goto1693938221699('a42d8c7a-6061-4965-d85c-e6ef66160969', '')
+
+
+update stock_product set status =1 where id in (
+select d1.id
+from stock_product d1
+left outer join stock d2 on(d1.stock_id = d2.id)
+left outer join product d3 on(d1.product_id = d3.id)
+left outer join stock_product d4 on(d1.rel_id = d4.id)
+left outer join stock_product d5 on(d1.id = d5.rel_id)
+where d1.status =0 and d1.warehouse_id ='1dc8bb98-39b8-4890-fadf-09df34fe2551'
+and d3.code='TPKLC145'
+
+--and d2.receipt_date<='2023-08-01 00:59:59'
+--and d2.receipt_date>='2023-08-01 23:59:59'
+and d1.quantity_out =0
+order by d1.rel_id asc
+)
+
+select * from stock_product where rel_id ='db583e30-3a42-11ee-9bdf-a75c91755c04'
+delete from stock_product where id ='1337cda0-40d5-11ee-a7c0-0d554478974f'
+
+update mrp_workcenter_line_log  set start_date=create_date where 
+extract(Hour from start_date)<=5 and extract(Hour from start_date)<extract(Hour from create_date) and extract(Hour from create_date)<10
+
+select d1.id, d3.receipt_no, d1.publish, d1.status, d1.create_date, d1.write_date, d1.conformity_code, d4.code, d4.name from sale_order_product d1
+left outer join sale_order d2 on(d1.order_id = d2.id)
+left outer join customer_register d3 on(d2.rel_id = d3.id)
+left outer join product_private d4 on(d1.private_id = d4.id)
+where d3.receipt_no ='VICB.1740' and d1.publish =1
+order by  d1.conformity_code asc
+
+select d1.id, d1.status, d3.receipt_no, d1.publish, d1.status, d1.create_date,
+ d1.write_date, d1.conformity_code, 
+d4.code, d4.name 
+, d4.version, d1.scheme_id,d1.address
+from sale_order_product d1
+left outer join sale_order d2 on(d1.order_id = d2.id)
+left outer join customer_register d3 on(d2.rel_id = d3.id)
+left outer join product_private d4 on(d1.private_id = d4.id)
+where d3.receipt_no ='VICB.1868' and d1.publish =1
+and 
+(d1.conformity_code ='VICB 0797.10-08'
+or d1.conformity_code ='VICB 0797.10-14'
+or d1.conformity_code ='VICB 0797.10-198'
+or d1.conformity_code ='VICB 0797.10-206'
+)
+order by  d1.conformity_code asc
+
+update mrp_production set product_id ='3add7609-f2fa-4a78-991f-778b2b80673f' where product_id ='8231141d-c1c1-4008-ab3f-2760efcb5a60';
+update mrp_production_product set product_id ='3add7609-f2fa-4a78-991f-778b2b80673f' where product_id ='8231141d-c1c1-4008-ab3f-2760efcb5a60';
+update product_price set product_id ='3add7609-f2fa-4a78-991f-778b2b80673f' where product_id ='8231141d-c1c1-4008-ab3f-2760efcb5a60';
+update mrp_bom_line set product_id ='3add7609-f2fa-4a78-991f-778b2b80673f' where product_id ='8231141d-c1c1-4008-ab3f-2760efcb5a60';
+update sale_order_product set product_id ='3add7609-f2fa-4a78-991f-778b2b80673f' where product_id ='8231141d-c1c1-4008-ab3f-2760efcb5a60';
+update sale_product_local set product_id ='3add7609-f2fa-4a78-991f-778b2b80673f' where product_id ='8231141d-c1c1-4008-ab3f-2760efcb5a60';
+update purchase_request_product set product_id ='3add7609-f2fa-4a78-991f-778b2b80673f' where product_id ='8231141d-c1c1-4008-ab3f-2760efcb5a60';
+
+Thông báo giám sát quá hạng, thông báo chưa hoàng thành, sản phẩm chưa giám sát
+
+title=VfSC {product_code},x=72,y=10,w=120,align=left;title=Tên: {product_name},x=72,y=25,w=120,align=left;title=KL :{attribute_name},x=72,y=40,w=120,align=left,font-size:9
+
+
+
+delete from stock_product where id in(
+select d1.id from stock_product d1
+left outer join stock d2 on(d1.stock_id = d2.id)
+where d2.rel_id ='0f43d110-a5f4-11ee-8548-43d0cb9a6d85')
+
+delete from stock where rel_id ='0f43d110-a5f4-11ee-8548-43d0cb9a6d85'
+
+select d3.id, d3.status, d1.id, d1.status,  d7.name,d1.receipt_no,  d3.quantity, d3.quantity_out, d4.name, d6.receipt_no, d6.receipt_date from stock d1
+left outer join res_user d2 on(d1.create_uid = d2.id)
+left outer join stock_product d3 on(d1.id = d3.stock_id)
+left outer join stock_warehouse d4 on(d3.warehouse_id = d4.id)
+left outer join stock_product d5 on(d3.id = d5.rel_id)
+left outer join stock d6 on(d5.stock_id = d6.id)
+left outer join product d7 on(d3.product_id = d7.id)
+where d3.status =0 and d1.receipt_no='NTP2412697'
+or d1.receipt_no='NTP2412707'
+order by d1.receipt_no ASC
+
+"CB31235"
+
+select d1.employee_id, d1.user_id from res_user_company d1 
+left outer join res_user d2 on(d1.user_id = d2.id)
+where d2.user_name ='VP10046'
+"174ab777-d12c-47e9-ac6e-d56ed9b8adcc"
+
+
+
+select d1.id, d1.res_id, d1.receipt_no, d1.receipt_date, d3.version, d2.user_name, d1.status from res_receipt d1
+left outer join res_user d2 on(d1.create_uid = d2.id)
+left outer join res_version d3 on(d1.id = d3.id)
+where d1.receipt_no='715'
+
+"ML10002"
+
+"ML10016"
+"24f9d17b-e48f-4495-f226-0044e9aec464"
+"e159628f-4ddb-408b-bf6c-321a73d0b846"
+"047f86db-47de-4b7a-bdda-b1ddfa83a944"
+
+
+update res_receipt set status =0 where id='8437fb50-eb26-11ee-ba5f-e3a0b354642b'
+
+"e5a77d80-ddf1-11ee-8e96-f9424c30212d"
+
+SELECT d5.id AS receipt_id, d5.parent_id, d5.receipt_no, d5.receipt_date, d6.version FROM res_receipt d5 
+LEFT OUTER JOIN res_version d6 ON(d5.id = d6.rel_id) WHERE d5.res_id='1d9de800-17f3-4eea-c7a9-46e3d2ef1da8' AND (d5.status = 2 OR d5.status = 3) 
+AND d5.receipt_date>='2024-03-09 00:00:00' AND d5.receipt_date<='2024-03-09 23:59:59.999' ORDER BY d5.receipt_date ASC
+
+
+
+SELECT d5.id AS receipt_id, d5.parent_id, d5.receipt_no, d5.receipt_date, d6.version FROM res_receipt d5 LEFT OUTER JOIN res_version d6 ON(d5.id = d6.rel_id) WHERE d5.res_id='1d9de800-17f3-4eea-c7a9-46e3d2ef1da8' AND (d5.status = 2 OR d5.status = 3) AND d5.receipt_date>='2024-03-09 00:00:00' 
+AND d5.receipt_date<='2024-03-09 23:59:59.999' ORDER BY d5.receipt_date ASC 
+
+select * from mrp_workorder where rel_id ='e5a77d80-ddf1-11ee-8e96-f9424c30212d'
+
+update mrp_workorder set status =0 where id='f3fefcc9-6555-49c0-a2e7-e1ae4cd4b0a8'
+
+select * from res_user where id ='3c99337d-07ab-40ad-ae2e-b46aca7dee34'
+
+"ML10004"
+
+
+SELECT DISTINCT d5.id AS receipt_id, d5.receipt_no, d5.receipt_date, d7.id AS id4, d7.name AS warehouse_name4, 
+d4.id AS workorder_id,d8.version 
+FROM stock_warehouse_rel d1 
+LEFT OUTER JOIN stock_warehouse d2 ON(d1.warehouse_id = d2.id)
+ LEFT OUTER JOIN stock_warehouse d3 ON(d2.parent_id = d3.id) 
+ LEFT OUTER JOIN mrp_workorder d4 ON(d1.rel_id = d4.id AND d4.status =0) 
+ LEFT OUTER JOIN res_receipt d5 ON(d4.rel_id = d5.id) 
+ LEFT OUTER JOIN stock_warehouse d6 ON(d3.parent_id = d6.id) 
+ LEFT OUTER JOIN stock_warehouse d7 ON(d6.parent_id = d7.id) LEFT OUTER JOIN res_version d8 ON(d5.id = d8.rel_id) 
+ WHERE d7.id IS NOT NULL AND d1.status =0 AND d2.status =0 AND d5.res_id ='1d9de800-17f3-4eea-c7a9-46e3d2ef1da8' 
+ AND (d5.status =2 OR d5.status=3)  and d5.receipt_date>='2024-03-09 00:00:00' 
+AND d5.receipt_date<='2024-03-09 23:59:59.999' ORDER BY d5.receipt_date ASC, d5.id ASC
+
+Stop thiết bị theo đơn hàng
+Lệnh sản xuất ra phiếu
+Thêm thời gian nợ từng khách ở phiếu đơn hàng
+Đơn giá lọc theo khách hàng
+Ngày áp dụng, ngày kết thúc cho BOM Line
+Tạo lệch sản xuất tạm
+Lệch sản xuất bán thành phẩm
+Hạn mức mua hàng. Từng mã hàng 10%
+
+KẾ HOẠCH -> LAB -> KE TOAN SX -> KHO -> SX BTP
+BTP -> LAB -> QC -> NHAP KHO
+BTP->LAB->QC->NHAP KHO
+
+TP:
+KẾ HOẠCH -> THẾ KẾ THÔNG TIN -> QC -> MUA HANG -> NHẬN HÀNG -> QC-> NHẬP KHO -> KẾ TOÁN KHO
+
+- Tách kế hoạch thành phầm/bán thành phẩm
+
+- Kế hoạch bảo dưởng -> Sản xuất
+
+- Hồ sơ hành chính: Hết hạn, cảnh báo hết hạn, phòng ban liên quan.
+- Chỉnh sửa, import thuộc tính lương
+- Cảnh báo hết hạn hợp đồng, sinh nhật
+- Lương thưởng/thuộc tính động. vi du: 30/4, lể thưởng.
+- Công cụ dụng cụ. cho phòng ban, nhân viên, ngày đến hạn cấp đồ
+- Giử thông báo đến bộ phận
+- Thông báo hợp đồng -> gửi survey đến quản lý, nhân viên
+- Chử ký số
+
+Them trừ tự động xuất kho bán
+356763
+
+
+
+
+

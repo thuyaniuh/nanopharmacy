@@ -1,0 +1,43 @@
+1. Thay đổi giá là phụ trách dự án
+2. Hiện số tờ thửa ở hộ dân
+3. 2 icon download
+
+option Delivery
+
+
+
+select distinct d1.id,  d6.name from stock d1
+left outer join sale_local d2 on(d1.rel_id = d2.id)
+left outer join stock_product d4 on(d1.id = d4.stock_id)
+left outer join stock_product d5 on(d4.rel_id = d5.id)
+left outer join stock_warehouse d6 on(d5.warehouse_id = d6.id)
+left outer join sale_order d7 on(d2.rel_id= d7.id)
+where d2.id is not null  and d7.id is not null
+order by d6.name  asc
+
+
+delete from sale_order;
+delete from sale_order_product;
+delete from sale_local;
+delete from sale_product_local;
+delete from sale;
+delete from sale_product;
+delete from purchase_order;
+delete from purchase_order_product;
+delete from purchase_request;
+delete from purchase_request_product;
+delete from stock;
+delete from stock_product;
+delete from account_invoice;
+delete from account_invoice_line;
+delete from account_journal;
+delete from account_journal_line;
+delete from project_task;
+delete from res_assign;
+delete from res_notification;
+delete from mrp_planning;
+delete from purchase_receive;
+delete from purchase_receive_product;
+
+"SC10011"
+"XST2310600"

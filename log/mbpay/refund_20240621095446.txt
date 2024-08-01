@@ -1,0 +1,1 @@
+{"message":"Paygate Single Refund process >>> Original Transaction not valid. with transaction_reference_id: 0","error_code":"102","mac_type":"MD5","mac":"72D8F5DDB937B58C5660EB1333B37F01"}

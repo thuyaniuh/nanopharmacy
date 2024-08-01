@@ -1,0 +1,151 @@
+body
+{
+	font-family: Times New Roman, Times, serif;
+	font-size: 14pt;
+}
+.borderLine 
+{
+	border-collapse:collapse;
+	border:none;
+	mso-border-alt:solid #C1C2C3 .5pt;
+ 	mso-yfti-tbllook:480;
+ 	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ 	mso-border-insideh:.5pt solid #C1C2C3;
+	mso-border-insidev:.5pt solid #C1C2C3
+	font-family: Times New Roman, Times, serif;
+	font-size: 10pt;
+}
+.borderLine td {
+ 	border:solid 1.0pt;
+  	mso-border-alt:solid #C1C2C3 .5pt;
+  	height:24px;
+	padding:0in 5.4pt 0in 5.4pt
+	font-family: Times New Roman, Times, serif;
+	font-size: 10pt;
+}
+.title
+{
+	font-family: Times New Roman, Times, serif;
+	font-size:14pt;
+	font-weight:bold;
+	color: #171717;
+}
+.font-size12
+{
+	font-size:12pt;
+}
+.font-size12bold
+{
+	font-size:12pt;
+	font-weight:bold;
+}
+.font-size13
+{
+	font-size:13pt;
+}
+.font-size13bold
+{
+	font-size:13pt;
+	font-weight:bold;
+}
+.font-size14
+{
+	font-size:14pt;
+}
+.font-size14bold
+{
+	font-size:14pt;
+	font-weight:bold;
+}
+.font-size15
+{
+	font-size:15pt;
+}
+.font-size15bold
+{
+	font-size:15pt;
+	font-weight:bold;
+}
+.font-size16
+{
+	font-size:16pt;
+}
+.font-size16bold
+{
+	font-size:16pt;
+	font-weight:bold;
+}
+.company
+{
+
+}
+.date
+{
+
+}
+.header
+{
+	background-color:#FFFFA8;
+	color:black;
+}
+
+.header1
+{
+	background-color:#F5FEB8;
+	
+}
+
+.text_form_label 
+{
+	font-family: Times New Roman, Times, serif;
+	font-size: 10pt;
+	color: black;
+	font-weight: bold;
+}
+.text_form_content
+{
+	font-family: Times New Roman, Times, serif;
+	font-size: 9pt;
+	color: Black;
+}
+hr
+{
+	height:1px;
+	color: black;
+}
+.warnning
+{
+	font-family: Times New Roman, Times, serif;
+	font-size: 9pt;
+	color:Red;
+}
+.tbl
+{
+	border: 1px solid black;
+}
+p {
+  margin: 1.1pt;
+  font-family: Times New Roman, Times, serif;
+  font-size: 10pt;
+}
+td {
+  
+  font-family: Times New Roman, Times, serif;
+  font-size: 10pt;
+  
+}
+span {
+  margin: 1.1pt;
+  font-family: Times New Roman, Times, serif;
+  font-size: 10pt;
+}
+@page {
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+    margin-left: 3cm;
+    margin-right: 1.5cm;
+}
+.title_cert {
+	
+	font-family: "UTM God's Word", serif;
+}

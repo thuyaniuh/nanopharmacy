@@ -1,0 +1,76 @@
+select id from sale_local where order_no='140856'
+select id from sale where order_no='121243'
+
+update sale_local set status =0, write_date=now() where id ='456b2e3d-eb09-4738-8b83-155475527057';
+update sale_product_local set status =0, write_date=now() where sale_id ='456b2e3d-eb09-4738-8b83-155475527057';
+update account_payment_line_local set status =0, write_date=now() where rel_id ='456b2e3d-eb09-4738-8b83-155475527057';
+update account_service_line_local set status =0, write_date=now() where rel_id ='456b2e3d-eb09-4738-8b83-155475527057';
+
+
+delete from sale  where id ='456b2e3d-eb09-4738-8b83-155475527057';
+delete from sale_product  where sale_id ='456b2e3d-eb09-4738-8b83-155475527057';
+delete from account_payment_line  where rel_id ='456b2e3d-eb09-4738-8b83-155475527057';
+delete from account_service_line where rel_id ='456b2e3d-eb09-4738-8b83-155475527057';
+
+update account_service_line_local set status =1 where rel_id ='b1a1cefe-4ae9-4220-b5eb-c571b199a4be'
+
+update sale_shipping set start_date ='2024-01-09 01:11:14' where sale_id ='109d2402-405e-4719-b620-a42123f09d8f'
+
+update sale_local set receipt_date='2024-01-09 01:11:14', order_date ='2024-01-09 01:11:14' where id ='109d2402-405e-4719-b620-a42123f09d8f'
+
+select * from res_attribute_line
+
+select * from document where id ='04f94300-b389-11ee-afbb-27477c3d7d28'
+
+alter table document_category add column parent_id CHARACTER varying(36)
+
+select * from ir_action where id ='3efb7875-2126-4eb2-fe47-47df8897570d'
+select * from res_resource where rel_id ='3efb7875-2126-4eb2-fe47-47df8897570d'
+
+update ir_action set company_id ='e741709c-6309-4704-a6dc-e339a8b4bf7f'
+where id='5be9aa90-de20-42ce-e06e-81d7752c0174'
+
+select * from ir_action where id='5be9aa90-de20-42ce-e06e-81d7752c0174'
+javascript:goto1705371051223('b5437b9b-4b93-41fc-f86a-df51a0cb809b')
+
+
+update  hr_department set parent_id =''
+
+
+DELETE FROM sale_local WHERE id ='0bec2adb-bd2d-47bf-aeec-d707cc03645d'; DELETE FROM sale_product_local WHERE sale_id='0bec2adb-bd2d-47bf-aeec-d707cc03645d'; DELETE FROM account_service_line_local WHERE rel_id ='0bec2adb-bd2d-47bf-aeec-d707cc03645d'; DELETE FROM account_payment_line_local WHERE rel_id ='0bec2adb-bd2d-47bf-aeec-d707cc03645d'
+
+select * from sale_local where id ='03b96ea8-5694-421b-ba34-4ba92e3edd99'
+
+
+javascript:goto1705577947718('9eaa0118-dcc0-4d26-864b-76a8793ab4ad')
+
+select * from stock where rel_id ='9eaa0118-dcc0-4d26-864b-76a8793ab4ad'
+
+select * from stock_warehouse where id ='43d3811d-9a76-49e2-bdda-881dfe2bc8d5'
+select * from stock_warehouse where id ='0342ec00-49fc-435a-c46a-88201ae72833'
+select * from res_company where id ='5ac5c464-08e1-4ce6-ac94-9df3fc65c919'
+
+select * from res_company where id ='74e260b7-b4dc-4c50-e94a-47becb906e43'
+
+
+select * from stock_product where stock_id ='da75203a-0d6a-41d9-8bd4-015790fe552c'
+
+select * from (
+select d1.id, d1.quantity, d1.quantity_out ,
+(select sum(quantity) from stock_product where status =0 and rel_id = d1.id)  ,
+d4.name, d2.receipt_date, d5.create_date, d2.id, d1.product_id, d3.status, d6.receipt_date, d6.id, d1.unit_id
+from stock_product d1 
+left outer join stock d2 on(d1.stock_id = d2.id)
+left outer join product d3 on(d1.product_id = d3.id)
+left outer join stock_warehouse d4 on(d1.warehouse_id = d4.id)
+left outer join stock_product d5 on(d1.id = d5.rel_id and d5.status =0)
+left outer join stock d6 on(d5.stock_id = d6.id)
+where d1.status =0 and d2.status =0
+--and 
+--d2.receipt_date<='2024-01-02 23:59:59'
+--and d1.warehouse_id='9a99a1bf-610f-4622-e144-7050fbda8d47'
+--and d3.code='TSNHE005'
+order by  d5.create_date asc
+) d where d.quantity_out != 0 AND d.quantity_out != d.sum
+
+select * from stock_product where rel_id ='760225fe-2c8b-484a-81ac-9f61089e7400'

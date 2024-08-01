@@ -1,0 +1,1 @@
+{"amount":"1575000.00","currency":"VND","merchant_id":"103890","order_info":"HD000077","order_reference":"00007720240621105007","transaction_number":"241731050427646","trans_time":"21062024105042","resp_code":"00","error_code":"00","issuer":"970422","message":"Success","pg_payment_method":"324","mac":"078EA83B466ABAD922826F13D95AA6A8","mac_type":"MD5"}
